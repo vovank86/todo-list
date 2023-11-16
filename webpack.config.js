@@ -40,8 +40,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: 'src/index.html',
-            title: 'Calendar',
-            filename:'calendar.html'
+            title: 'ToDoList',
+            filename:'index_bandle.html'
         }),
         new MiniCssExtractPlugin()
     ]
