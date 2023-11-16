@@ -1,4 +1,4 @@
-import '../src/style.css'
+import './Style/style.css'
 
 // Текущая дата
 let date = new Date();
