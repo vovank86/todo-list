@@ -19,10 +19,6 @@ module.exports = {
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader, "css-loader"],
               },
-            // {
-            //     test:/\.css$/i,
-            //     use:['style-loader', 'css-loader']
-            // },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
@@ -39,9 +35,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
-            title: 'ToDoList',
-            filename:'index_bandle.html'
+            template: path.resolve(__dirname, "src/index.html"),
+            title: 'TO-DO List',
         }),
         new MiniCssExtractPlugin()
     ]
