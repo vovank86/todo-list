@@ -1,3 +1,4 @@
+require('webpack');
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -8,6 +9,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname,'dist'),
         filename: 'bundle.js',
+        assetModuleFilename: 'images/[name][ext]',
         clean: true
     },
     devServer:{
@@ -16,9 +18,30 @@ module.exports = {
     module:{
         rules:[
             {
-                test: /\.css$/i,
-                use: [MiniCssExtractPlugin.loader, "css-loader"],
-              },
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ],
+                exclude: /\.module\.css$/
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            modules: {
+                                localIdentName: "[name]__[local]--[hash:base64:5]",
+                                exportLocalsConvention: "camelCase",
+                            }
+                        }
+                    }
+                ],
+                include: /\.module\.css$/
+            },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
