@@ -6,7 +6,7 @@ To star development first of all install all needed dependencies. To do it open 
 To start the dev-server please run next command ```npm run start```
 
 ---
-## How to start use API server if needed
+## How to start use API server if needed (make it once)
 Before you can run the server please install Docker and Docker Compose. To do it read the [documentation](https://docs.docker.com/compose/install/).
 
 After the Docker and Docker Compose have been installed run the command inside the terminal window (console):
